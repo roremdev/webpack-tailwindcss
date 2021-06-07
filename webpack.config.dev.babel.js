@@ -1,14 +1,11 @@
 //- imports
-import { resolve } from 'path';
+import { resolve, join } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 export default () => {
     return {
-        mode: 'production',
+        mode: 'development',
         entry: './src/index.js',
         output: {
             path: resolve(__dirname, 'dist'),
@@ -21,6 +18,7 @@ export default () => {
                 '@styles': resolve(__dirname, 'src/scss'),
                 '@styles-base': resolve(__dirname, 'src/scss/base'),
                 '@styles-components': resolve(__dirname, 'src/scss/components'),
+                '@styles-utils': resolve(__dirname, 'src/scss/utils'),
                 '@layouts': resolve(__dirname, 'src/layouts'),
                 '@assets-images': resolve(__dirname, 'src/assets/images'),
                 '@assets-svg': resolve(__dirname, 'src/assets/svg'),
@@ -40,16 +38,7 @@ export default () => {
                 {
                     test: /\.s[ac]ss$/i,
                     use: [
-                        MiniCssExtractPlugin.loader,
-                        'css-loader',
-                        'postcss-loader',
-                        'sass-loader',
-                    ],
-                },
-                {
-                    test: /\.css$/i,
-                    use: [
-                        MiniCssExtractPlugin.loader,
+                        'style-loader',
                         'css-loader',
                         'postcss-loader',
                         'sass-loader',
@@ -86,17 +75,14 @@ export default () => {
             new HtmlWebpackPlugin({
                 template: resolve(__dirname, './src/views/home.pug'),
             }),
-            new MiniCssExtractPlugin({
-                filename: '[name].[contenthash].css',
-                attributes: {
-                    rel: 'preload',
-                },
-            }),
             new CleanWebpackPlugin(),
         ],
-        optimization: {
-            minimize: true,
-            minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+        devServer: {
+            contentBase: join(__dirname, 'dist'),
+            compress: true,
+            port: 3000,
+            injectClient: false,
+            historyApiFallback: true,
         },
     };
 };

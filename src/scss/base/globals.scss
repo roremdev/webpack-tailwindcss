@@ -1,0 +1,12 @@
+// main sections
+html {
+    @apply font-base;
+    //- css
+    font-size: 12px;
+    max-width: 1920px;
+    min-width: 428px;
+}
+body {
+    @apply w-screen h-screen;
+    @apply grid place-content-center justify-items-center;
+}

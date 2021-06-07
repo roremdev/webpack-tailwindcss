@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//- base -> @styles-base
+@import '@styles-base/globals.scss';
+@import '@styles-base/text.scss';
+
+//- components -> @styles-components
+@import '@styles-components/tags.scss';
+
+//- utilities -> @styles-utils

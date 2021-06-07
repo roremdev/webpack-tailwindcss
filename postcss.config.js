@@ -1,2 +1,3 @@
 import tailwindcss from 'tailwindcss';
-export const plugins = [tailwindcss];
+import postNested from 'postcss-nested';
+export const plugins = [tailwindcss, postNested];

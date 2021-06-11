@@ -1,9 +1,3 @@
 extends ../layouts/default
 block content
-    img(
-        src=require("@assets-svg/icon-webpack.svg"),
-        alt="icon webpack",
-        width="150" height="150")
-    h1.title Hello world
-    div.tag
-        span 2.0.0
+    include ../components/hero.pug

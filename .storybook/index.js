@@ -1,6 +1,7 @@
 //- imports
 import { resolve } from 'path';
 import webpackDevConfig from '../webpack.config.dev.babel';
+import { theme } from '../tailwind.config';
 //- get rules value config from webpack dev configuration
 const {
     module: { rules },
@@ -42,10 +43,7 @@ export default {
             },
             module: {
                 ...config.module,
-                rules: [
-                    ...config.module.rules,
-                    rules[2]
-                ],
+                rules: [...config.module.rules, rules[2]],
             },
         };
     },

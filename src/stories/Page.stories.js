@@ -1,17 +1,21 @@
+//- imports
 import '../scss/tailwind.scss';
 import startCase from 'lodash/startCase';
 import { renderer } from 'storypug';
-import Page from './page.pug';
-
-// const { html } = renderer({ startCase });
-const { render } = renderer({ startCase });
+import Home from './home.pug';
 
 export default {
-    title: 'Example/Page',
+    title: 'Pages',
+    parameters: {
+        previewTabs: {
+            'storybook/docs/panel': {
+                hidden: true,
+            },
+        },
+    },
 };
 
 export const Basic = () => {
-  // return html(Page);
-  const wrapper = render(Page);
-  return wrapper.$root;
+    const { html } = renderer({ startCase });
+    return html(Home);
 };

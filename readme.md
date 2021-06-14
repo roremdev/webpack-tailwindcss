@@ -9,5 +9,9 @@
 - `npm run build` - To generate statics files to production
 - `npm run dev` - Run production environment
 
+### Tags
+- `git tag <tagname>` - to create tag
+- `git push origin <tag>` - to update single tag
+
 ### Author
 @roremDev

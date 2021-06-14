@@ -21,6 +21,7 @@ export default () => {
                 '@styles': resolve(__dirname, 'src/scss'),
                 '@styles-base': resolve(__dirname, 'src/scss/base'),
                 '@styles-components': resolve(__dirname, 'src/scss/components'),
+                '@styles-utils': resolve(__dirname, 'src/scss/utils'),
                 '@layouts': resolve(__dirname, 'src/layouts'),
                 '@assets-images': resolve(__dirname, 'src/assets/images'),
                 '@assets-svg': resolve(__dirname, 'src/assets/svg'),
